@@ -1,0 +1,508 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', sans-serif;
+  background: #fff; /* Цвет фона страницы для контраста */
+}
+
+.header {
+  background-color: #2C67BA;
+  color: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Добавляем тень для шапки */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto; /* Выравнивание по центру */
+  padding: 0 15px; /* Отступы сбоку для маленьких экранов */
+  max-width: 1200px; /* Максимальная ширина контейнера */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  margin-right: 30px;
+  height: 80px;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0; /* Убираем стандартные отступы */
+  padding: 0; /* Убираем стандартные отступы */
+}
+
+.navigation li {
+  padding: 5px 10px;
+  position: relative;
+}
+
+.navigation li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+  font-size: 18px; /* Увеличиваем размер шрифта */
+  font-weight: 500; /* Средняя жирность текста */
+  text-shadow: 1px 1px 2px black; /* Легкая тень для улучшения читаемости */
+}
+
+.navigation li a:hover {
+  transform: scale(1.05);
+}
+
+.language-selector {
+  cursor: pointer;
+  position: relative;
+  font-size: 18px; /* Увеличиваем размер шрифта */
+  font-weight: 500; /* Средняя жирность текста */
+  text-shadow: 1px 1px 2px black; /* Легкая тень для улучшения читаемости */
+}
+
+.language-selector::before {
+  content: '\f0ac'; /* FontAwesome globe icon */
+  font-family: 'Font Awesome 5 Free';
+  padding-right: 8px;
+  font-weight: 900; /* Необходимо для FontAwesome */
+}
+
+.language-dropdown {
+  display: none;
+  position: absolute;
+  background-color: #2C67BA;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.language-dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.language-dropdown a:hover {
+  background-color: #001a66;
+}
+
+.show {
+  display: block;
+}
+/* Медиазапросы для планшетов */
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: column; /* Стек элементов вертикально */
+    align-items: flex-start; /* Выравнивание элементов в начале блока */
+  }
+  
+  .language-dropdown {
+    right: 0; /* Выравнивание выпадающего списка с правой стороны */
+  }
+}
+/* Медиазапросы для мобильных телефонов */
+@media (max-width: 480px) {
+  .header-container {
+    flex-direction: column; /* Стек элементов вертикально */
+    align-items: center; /* Выравнивание элементов по центру */
+  }
+
+  .logo img {
+    margin: 0 auto; /* Выравнивание логотипа по центру */
+  }
+
+  .navigation {
+    width: 100%; /* Полная ширина навигации */
+    align-items: center; /* Выравнивание элементов по центру */
+  }
+  
+  .navigation li {
+    padding: 10px; /* Больше пространства для пунктов меню */
+  }
+}
+.test-info-container .emblem {
+  position: absolute; /* Абсолютное позиционирование для размещения эмблемы */
+  top: 20px; /* Отступ сверху */
+  right: 20px; /* Отступ справа */
+  height: 50px; /* Высота изображения */
+  /* При необходимости добавьте width, если изображение слишком велико */
+}
+.test-info-container {
+   position: relative; 
+   background-color: #F5F5F5;
+  padding: 20px;
+  margin: 100px auto; /* Автоматические отступы по бокам для центрирования */
+  max-width: 1000px; /* Максимальная ширина контейнера */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.iq-test-characteristics {
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-collapse: collapse;
+}
+.test-info-container h2 {
+  color: #003399; /* Синий цвет заголовка, как на фотографии */
+  font-size: 24px; /* Размер шрифта для заголовка */
+  margin-bottom: 20px; /* Отступ снизу для заголовка */
+}
+.test-info-container p {
+  font-size: 16px; /* Размер шрифта для параграфа */
+  color: #333; /* Темно-серый цвет текста */
+  line-height: 1.6; /* Межстрочный интервал */
+  margin-bottom: 20px;
+}
+.iq-test-characteristics th, .iq-test-characteristics td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.iq-test-characteristics th {
+  background-color: #f7f7f7;
+}
+
+.start-test-btn {
+  background-color: #003399;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.main-container {
+  display: flex;
+  justify-content: center; /* Для горизонтального центрирования дочерних элементов */
+  align-items: flex-start; /* Для выравнивания дочерних элементов по верхнему краю */
+  gap: 20px; /* Расстояние между дочерними элементами */
+  max-width: 1200px; /* Максимальная ширина всего контейнера */
+  margin: auto; /* Центрирование контейнера на странице */
+  padding: 20px; /* Отступы внутри контейнера */
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Столбцы для мобильных устройств */
+  }
+}
+
+/* Стили для блока с ответами, располагаем элементы по центру с переносом строк */
+.answers {
+   display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три элемента в строке */
+  gap: 10px; /* Отступы между элементами */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Стили для общего блока вопроса */
+.question-block {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%; /* Процент ширины от родительского элемента */
+  max-width: 800px; /* Максимальная ширина блока */
+}
+.answer-label {
+  font-size: 1em; /* Adjust the size as needed */
+  margin-bottom: 5px; /* Space between the label and the image */
+  color:grey; /* Make the label bold */
+}
+
+/* Стили для изображений внутри кнопок */
+.answer-btn img {
+  width: auto; /* Ширина автоматически подбирается */
+  max-width: 100%; /* Максимальная ширина ограничена блоком */
+  height: auto;
+}
+
+/* Убираем контур при фокусе для более чистого вида */
+.answer-btn:focus {
+  outline: none;
+}
+
+/* Стиль при наведении мышкой */
+.answer-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Стили для блока с изображениями вопроса, выравниваем по центру */
+.question-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* Отступы между элементами */
+
+}
+
+/* Стилизация кнопки 'Далее' */
+#next-question-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+/* Стилизация заголовка вопроса */
+.question-block h2 {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+/* Дополнительные стили, если они нужны для выравнивания кнопок ответов по 3 в ряд */
+.answer-btn {
+  border: none;
+  background: none;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%; /* Занимать всю доступную ширину в ячейке grid */
+  border: none;
+  background: none;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%; /* Занимать всю доступную ширину в ячейке grid */
+}
+
+/* Центрирование основного контейнера теста */
+.test-questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-radius: 8px;
+}
+.question-counter {
+  font-size: 16px; /* Настройте размер по необходимости */
+  margin-bottom: 10px; /* Пространство под счетчиком */
+  /* Любые дополнительные стили, которые вы хотите для счетчика */
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#prev-question-btn, #next-question-btn {
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+#prev-question-btn {
+  /* Style for back button if needed */
+}
+
+#next-question-btn {
+  /* Style for next button if needed */
+}
+#result-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#result-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#result-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+#result-form label {
+  margin-bottom: 5px;
+}
+
+#result-form input[type="text"],
+#result-form input[type="email"],
+#result-form select,
+#result-form input[type="date"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#result-form button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#result-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Скрыть скрытое поле, если оно у вас есть */
+#test-result {
+  display: none;
+}
+.modal {
+  display: none; /* Скрыть модальное окно по умолчанию */
+  position: fixed; /* Остаётся на месте при прокрутке */
+  z-index: 1; /* Сидит поверх */
+  left: 0;
+  top: 0;
+  width: 100%; /* Полная ширина */
+  height: 100%; /* Полная высота */
+  overflow: auto; /* Включить прокрутку, если нужно */
+  background-color: rgb(0,0,0); /* Фоновый цвет */
+  background-color: rgba(0,0,0,0.4); /* Чёрный с непрозрачностью */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% от верха и по центру */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Можно изменить на более узкое или широкое */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.results-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+}
+
+.results-section {
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.results-list-container {
+  width: 100%;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  transition: background-color 0.3s ease; /* Плавное изменение фона */
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+.result-item:hover {
+  background-color: #eaeaea; /* Светлый серый цвет при наведении */
+}
+.country-flag {
+  width: 50px; /* Выберите подходящий размер */
+  height: auto;
+  margin-right: 10px;
+  align-self: center;
+}
+
+
+
+
+
+.name, .score {
+  display: inline-block; /* или можно использовать 'inline' в зависимости от предпочтений */
+  margin-right: 5px; /* Убедитесь, что есть некоторый отступ справа от имени и IQ */
+}
+
+.date {
+  display: block; /* Это заставит дату отображаться на новой строке */
+  margin-top: 5px; /* Немного места сверху для отступа */
+  color: #666; /* Цвет текста для даты */
+  font-size: 0.8em; /* Меньший размер шрифта для даты */
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .results-section {
+    /* Adjust width accordingly */
+    width: 30%;
+    margin-right: 20px; /* Add margin for spacing */
+  }
+
+  .test-info-container {
+    /* Adjust width accordingly */
+    width: 70%;
+  }
+
+  .navigation-menu {
+    /* Fixed position to stay in place during scroll */
+    top: 100px; /* Adjust the top position as needed */
+    left: 0;
+    width: 200px; /* Width of the menu */
+    background-color: #f7f7f7; /* Background color of the menu */
+    padding: 20px; /* Padding inside the menu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for better visibility */
+  }
+
+  .navigation-menu ul {
+    list-style-type: none; /* Removes bullet points from list */
+    padding: 0; /* Removes padding */
+    margin: 0; /* Removes margin */
+  }
+
+  .navigation-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none; /* Removes underline from links */
+    color: #000; /* Color of the links */
+    border-bottom: 1px solid #ddd; /* Adds a border to the bottom of each link */
+  }
+
+  .navigation-menu li a:hover {
+    background-color: #eee; /* Color change on hover */
+  }

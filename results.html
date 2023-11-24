@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Header with Language Selector</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Подключение Font Awesome -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles2.css">
+   <!-- Подключение внешнего CSS файла -->
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo"> <!-- Убедитесь, что путь к логотипу верный -->
+        <span data-en="International IQ Test" data-ru="Международный тест IQ" data-ua="Міжнародний тест IQ">Международный тест IQ</span>
+      </div>
+      <nav>
+        <ul class="navigation">
+          <li><a href="index.html" class="button" data-en="Take Test" data-ru="Пройти тест" data-ua="Пройти тест">Пройти тест</a></li>
+          <li><a href="#results" class="button-outline" data-en="Recover My Results" data-ru="Восстановить мой результат" data-ua="Відновити мій результат">Восстановить мой результат</a></li>
+          <li class="language-selector" onclick="toggleDropdown()">Язык &#9662;
+            <div class="language-dropdown" id="languageDropdown">
+              <a href="#" data-language="en">English (US)</a>
+              <a href="#" data-language="ru">Русский (РФ)</a>
+              <a href="#" data-language="ua">Українська (UA)</a>
+              <!-- Add other languages here -->
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ 
+
+
+
+
+<div class="iq-test-result">
+  <h1>Результат теста IQ</h1>
+  <span class="highlight">Поздравляем, <span id="user-name"></span></span>
+ 
+  <p>Тест IQ, что вы прошли представляет собой эволюцию концепции прогрессивных матриц Равена. Они предназначены для диагностики уровня интеллектуального развития и оценивания логики, способности трезво рассуждать и воспринимать сложность а также способность запоминать и воспроизводить образцы информации, которую иногда называют репродуктивной способностью.</p>
+  <p>Прежде всего, следует помнить, что уровень среднего IQ фиксирован на 100 по историческим причинам. Тест, что вы пройдете был разработан таким образом, чтобы средний показатель кандидатов был равен 100. Впоследствии, каждый кандидат, в зависимости от полученного им результата может сравнить его со статистическими данными по различным параметрам.</p>
+  <p>По результату теста, который вы только что завершили,<span class="highlight"> ваш IQ равен <span id="iq-score"></span></span></p>
+  <p>Этот показатель IQ является оценкой. Ваша оценка может варьировать в зависимости от формы и условий, при которых вы проходили тест.</p>
+
+<div id="user-message"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div class="charts-container">
+<div class="charts-container-piechart">
+  <h1>Международный уровень показателей IQ</h1>
+ <div id="iq-level-indicator">
+  <!-- Сюда будет вставлено сообщение о процентиле пользователя -->
+</div>
+  <div id="piechart" style="flex: 1; height: 500px;"></div>
+  
+</div>
+<div class="charts-container-barchart">
+  <h1>Уровень IQ по возрасту</h1>
+
+  <div id="iq-years-indicator">
+  <!-- Сюда будет вставлено сообщение о процентиле пользователя -->
+</div>
+  <div id="barchart" style="flex: 1; height: 500px;"></div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawCharts);
+
+function drawCharts() {
+  drawPieChart();
+  drawBarChart();
+}
+
+function drawPieChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['IQ Range', 'Percentage'],
+    ['< 70', 2],
+    ['70-79', 5],
+    ['80-89', 11],
+    ['90-99', 21],
+    ['100-109', 42],
+    ['110-119', 16],
+    ['120-129', 2],
+    ['130+', 1]
+  ]);
+
+  var options = {
+     colors: ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f', '#edc948', '#b07aa1', '#ff9da7'], // обновленные цвета
+    is3D: true, // если вы хотите добавить 3D-эффект
+    pieHole: 0.4, // если вы хотите кольцевую диаграмму
+    // ... другие настройки
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+function drawBarChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Age', 'Средний показатель IQ'],
+    ['< 18 лет', 90],
+    ['18-39 лет', 110],
+    ['40-59 лет', 100],
+    ['59-79 лет', 85],
+    ['80 лет >', 70]
+  ]);
+
+  var options = {
+    
+    bars: 'vertical'
+  };
+
+  var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+  chart.draw(data, options);
+}
+  
+</script>
+
+
+
+  <script>
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const score = params.get('score');
+      document.getElementById('user-name').textContent = name;
+      document.getElementById('iq-score').textContent = score;
+    };
+  </script>
+<script>
+
+  // Функция для переключения языка
+  function switchLanguage(language) {
+    // Найти все элементы, которые нужно перевести
+    var elements = document.querySelectorAll('[data-' + language + ']');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      el.textContent = el.getAttribute('data-' + language);
+    }
+  }
+
+  // Функция для отображения и скрытия выпадающего списка языков
+  function toggleDropdown() {
+    document.getElementById("languageDropdown").classList.toggle("show");
+  }
+
+  // Добавляем обработчик клика для всех ссылок в выпадающем списке
+  var languageLinks = document.querySelectorAll('.language-dropdown a');
+  for (var i = 0; i < languageLinks.length; i++) {
+    languageLinks[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      var language = this.getAttribute('data-language');
+      switchLanguage(language);
+      // Закрыть выпадающий список после выбора языка
+      document.getElementById("languageDropdown").classList.remove('show');
+    });
+  }
+
+  // Закрытие выпадающего списка при клике вне его
+  window.onclick = function(event) {
+    if (!event.target.matches('.language-selector, .language-selector *')) {
+      var dropdowns = document.getElementsByClassName("language-dropdown");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+
+<script type="text/javascript" src="script-diagramma.js"></script>
+<script type="text/javascript" src="script-diagramma-years.js"></script>
+
+</body>
+</html>

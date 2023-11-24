@@ -1,0 +1,91 @@
+
+
+/* Стили для основного контейнера с результатами */
+.iq-test-result {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 65%; /* Или ширина в соответствии с вашим дизайном */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизация заголовка результата */
+.iq-test-result h1 {
+  
+  margin-bottom: 1em;
+}
+
+/* Параграфы с описанием результата теста */
+.iq-test-result p {
+  line-height: 1.5;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+/* Стили для выделения имени пользователя и результата теста */
+.username,
+.test-result {
+  color: #0047ab;
+  font-weight: bold;
+}
+
+
+
+/* Медиа-запросы для адаптивного дизайна, если необходимо */
+@media (max-width: 768px) {
+  .iq-test-result {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .button {
+    padding: 8px 15px;
+  }
+
+  /* Дополнительные медиа-запросы */
+}
+
+.highlight {
+  color: #0047ab; /* Установка синего цвета для выделенных фрагментов текста */
+}
+
+/* Основной контейнер для диаграмм */
+.charts-container{ 
+margin-top:100px; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.charts-container h1{
+  font-size: 30px;
+}
+
+/* Стили для контейнера круговой диаграммы */
+.charts-container-piechart {
+  flex-basis: 50%; /* Половина ширины родительского контейнера */
+  max-width: 50%;
+}
+
+/* Стили для контейнера гистограммы */
+.charts-container-barchart {
+  flex-basis: 50%; /* Половина ширины родительского контейнера */
+  max-width: 50%;
+}
+.charts-container-barchart h1{
+  text-align: right;
+}
+/* Стили для каждой диаграммы */
+#piechart, #barchart {
+  height: 500px; /* Устанавливаем высоту диаграмм */
+}
+
+@media (max-width: 768px) {
+  /* На маленьких экранах каждая диаграмма занимает полную ширину */
+  .charts-container-piechart,
+  .charts-container-barchart {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}

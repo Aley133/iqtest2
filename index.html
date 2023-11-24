@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Header with Language Selector</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Подключение Font Awesome -->
+  <link rel="stylesheet" href="styles.css"> <!-- Подключение внешнего CSS файла -->
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo"> <!-- Убедитесь, что путь к логотипу верный -->
+        <span data-en="International IQ Test" data-ru="Международный тест IQ" data-ua="Міжнародний тест IQ">Международный тест IQ</span>
+      </div>
+      <nav>
+        <ul class="navigation">
+          <li><a href="#test" class="button" data-en="Take Test" data-ru="Пройти тест" data-ua="Пройти тест">Пройти тест</a></li>
+          <li><a href="#results" class="button-outline" data-en="Recover My Results" data-ru="Восстановить мой результат" data-ua="Відновити мій результат">Восстановить мой результат</a></li>
+          <li class="language-selector" onclick="toggleDropdown()">Язык &#9662;
+            <div class="language-dropdown" id="languageDropdown">
+              <a href="#" data-language="en">English (US)</a>
+              <a href="#" data-language="ru">Русский (РФ)</a>
+              <a href="#" data-language="ua">Українська (UA)</a>
+              <!-- Add other languages here -->
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Предполагаем, что ваша страница уже содержит шапку и другие элементы, как показано на скриншоте -->
+
+<div class="main-container">
+  
+
+
+
+
+  <div class="results-section">
+  <h3>Последние 20 результатов</h3>
+  <div class="results-list-container">
+    <!-- Сюда JavaScript будет добавлять результаты -->
+  </div>
+</div>
+
+
+<div class="test-info-container">
+  <img src="img/golden.png" alt="Эмблема" class="emblem">
+  <h2>Международный тест IQ</h2>
+  <p>Рады приветствовать вас на сайте Теста на IQ!</p>
+  <p>Среднестатистический уровень IQ (коэффициент интеллекта) для взрослых — около 100 баллов. А задавались ли вы вопросом: Какой у меня уровень IQ? Пройдите наш Тест на IQ и вы узнаете какой у вас уровень интеллекта!</p>
+  <p>Данный тест на айкью состоит из 40 вопросов, с постепенно увеличивающимся уровнем сложности вопросов — от простых к более сложным. На прохождение теста понадобится около 30 минут.</p>
+  <p>Перед началом теста убедитесь, что обстановка позволяет вам сконцентрироваться и ничто вас не побеспокоит.</p>
+  <p>Основные моменты IQ теста, которые следует учитывать перед тем, как пройти тест на айкью, указаны в приведенной таблице.</p>
+  
+  <table class="iq-test-characteristics">
+    <tr>
+      <th>Характеристика</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td>Количество вопросов в тесте</td>
+      <td>40 вопросов</td>
+    </tr>
+    <tr>
+      <td>Время для прохождения</td>
+      <td>30 минут</td>
+    </tr>
+    <tr>
+      <td>Средний уровень IQ</td>
+      <td>100 баллов</td>
+    </tr>
+    <tr>
+      <td>Возрастная группа</td>
+      <td>от 18 лет и старше</td>
+    </tr>
+    <!-- Другие строки таблицы -->
+  </table>
+
+  <button class="start-test-btn">Начать тест</button>
+
+</div>
+
+
+
+<div id="result-form" style="display: none;">
+  <h2 id="congratulations-header">Поздравляем, вы только что закончили тест!</h2>
+  
+  <!-- Форма с полями для заполнения -->
+  <form id="user-details-form">
+    <label for="user-name">Имя пользователя:</label>
+    <input type="text" id="user-name" name="userName" required><br>
+    
+    <label for="user-email">Email:</label>
+    <input type="email" id="user-email" name="userEmail" required><br>
+    
+    <label for="user-gender">Пол:</label>
+    <select id="user-gender" name="userGender">
+      <option value="male">Мужской</option>
+      <option value="female">Женский</option>
+      <option value="other">Другое</option>
+    </select><br>
+    
+    <label for="user-birthyear">Год рождения:</label>
+    <input type="date" id="user-birthdate" name="userBirthdate" required><br>
+    
+    <label for="user-education">Образование:</label>
+<select id="user-education" name="userEducation">
+  <option value="secondary">Диплом средней школы</option>
+  <option value="agricultural">Сельскохозяйственная школа</option>
+  <option value="architecture">Архитектура и планирование</option>
+  <option value="art_design">Искусство и дизайн</option>
+  <option value="business_management">Торговля и управление</option>
+  <option value="education">Образование</option>
+  <option value="engineering_technology">Техника и технологии</option>
+  <option value="geography_geology">География и геология</option>
+  <option value="literature_culture">Литература и культура</option>
+  <option value="languages_philology">Языки и филология</option>
+  <option value="law">Право</option>
+  <option value="math_it">Математика и ИТ</option>
+  <option value="medical_sciences">Медицинские науки</option>
+  <option value="natural_sciences">Естественные науки</option>
+  <option value="social_sciences">Социальные науки</option>
+  <option value="communication_information">Коммуникация и информация</option>
+</select><br>
+    
+    <label for="education-level">Уровень образования:</label>
+<select id="education-level" name="educationLevel">
+  <option value="no_diploma">Без диплома</option>
+  <option value="high_school">Диплом средней школы</option>
+  <option value="two_years_higher">2 года высшего образования</option>
+  <option value="three_years_higher">3 года высшего образования</option>
+  <option value="four_years_higher">4 года высшего образования</option>
+  <option value="five_years_higher">5 лет высшего образования</option>
+  <option value="over_five_years_higher">Больше 5 лет высшего образования</option>
+</select>
+    
+    <!-- Скрытое поле для результата теста -->
+    <input type="hidden" id="test-result" name="testResult" value="">
+    
+    <!-- Кнопка для отправки формы -->
+    <button id="submit-result-btn" type="button">Проверить</button>
+  </form>
+</div>
+<!-- HTML структура для навигационного меню -->
+<!-- Блок вопросов теста -->
+<div id="test-questions" class="test-questions" style="display: none;">
+  <!-- Ваш контент с вопросами теста -->
+  <!-- Например, первый вопрос -->
+  <div class="question-block">
+     <!-- Счетчик вопросов -->
+  <div class="question-counter"> <span id="current-question-number">1</span></div>
+    <h2>Выберите недостающую фигуру</h2>
+    <div class="question-images">
+    <img src="img/test/question1.svg" alt="Вопрос 1">
+
+  <div class="answers">
+    <!-- Кнопки с изображениями для ответов -->
+    <button class="answer-btn" onclick="checkAnswer('A')">
+       <span class="answer-label">A</span>
+      <img src="img/test/answer1_a.svg" alt="Ответ A">
+    </button>
+    <button class="answer-btn" onclick="checkAnswer('B')">
+      <span class="answer-label">B</span>
+      <img src="img/test/answer1_b.svg" alt="Ответ B">
+    </button>
+    <button class="answer-btn" onclick="checkAnswer('C')">
+      <span class="answer-label">C</span>
+      <img src="img/test/answer1_c.svg" alt="Ответ C">
+    </button>
+    <button class="answer-btn" onclick="checkAnswer('D')">
+      <span class="answer-label">D</span>
+      <img src="img/test/answer1_d.svg" alt="Ответ D">
+    </button>
+    <button class="answer-btn" onclick="checkAnswer('E')">
+      <span class="answer-label">E</span>
+      <img src="img/test/answer1_e.svg" alt="Ответ E">
+    </button>
+    <button class="answer-btn" onclick="checkAnswer('F')">
+      <span class="answer-label">F</span>
+      <img src="img/test/answer1_f.svg" alt="Ответ F">
+    </button>
+  </div>
+  <!-- Кнопка "Далее" для перехода к следующему вопросу -->
+<!-- ... other HTML content ... -->
+
+<!-- Predefined result section in HTML -->
+
+</div>
+
+
+<div class="navigation-buttons">
+  <button id="prev-question-btn">НАЗАД</button>
+  <button id="next-question-btn">ДАЛЕЕ</button>
+</div>
+</div>
+</div>
+</div>
+
+
+  
+<script>
+
+  // Функция для переключения языка
+  function switchLanguage(language) {
+    // Найти все элементы, которые нужно перевести
+    var elements = document.querySelectorAll('[data-' + language + ']');
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      el.textContent = el.getAttribute('data-' + language);
+    }
+  }
+
+  // Функция для отображения и скрытия выпадающего списка языков
+  function toggleDropdown() {
+    document.getElementById("languageDropdown").classList.toggle("show");
+  }
+
+  // Добавляем обработчик клика для всех ссылок в выпадающем списке
+  var languageLinks = document.querySelectorAll('.language-dropdown a');
+  for (var i = 0; i < languageLinks.length; i++) {
+    languageLinks[i].addEventListener('click', function(e) {
+      e.preventDefault();
+      var language = this.getAttribute('data-language');
+      switchLanguage(language);
+      // Закрыть выпадающий список после выбора языка
+      document.getElementById("languageDropdown").classList.remove('show');
+    });
+  }
+
+  // Закрытие выпадающего списка при клике вне его
+  window.onclick = function(event) {
+    if (!event.target.matches('.language-selector, .language-selector *')) {
+      var dropdowns = document.getElementsByClassName("language-dropdown");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="script-results.js"></script>
+</body>
+</html>
